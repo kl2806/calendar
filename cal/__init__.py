@@ -28,6 +28,7 @@ def page_not_found(e):
 
 @app.route('/')
 def home():
+<<<<<<< HEAD
     events = Event.query.order_by(Event.start).all()
 
     sunday_events = [event for event in events if event.start.weekday() == 0]
@@ -50,4 +51,5 @@ def update():
 
 @app.route('/events')
 def events():
-    return jsonify({"events": map(lambda x: x.to_JSON(), Event.query.all())})
+	events = Event.query.order_by(Event.start).all()
+	return render_template('index.html', events=events)
