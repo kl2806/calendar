@@ -41,19 +41,3 @@ def home():
     events = [sunday_events, monday_events, tuesday_events, wednesday_events, thursday_events, friday_events, saturday_events]
 
     return render_template('index.html', events=events)
-
-@app.route('/update')
-def update():
-    update_fb_events()
-    return jsonify({"success": True})
-
-
-@app.route('/events')
-def events():
-	events = Event.query.order_by(Event.start).all()
-	return render_template('index.html', events=events)
-
-=======
-    #return render_template('index.html', events=events, monday_events=monday_events, tuesday_events=tuesday_events, wednesday_events=wednesday_events, thursday_events=thursday_events, friday_events=friday_events, saturday_events=saturday_events, sunday_events=sunday_events)
-    return render_template('index.html', events=events)
->>>>>>> created list of lists to compact week day event lists
